@@ -1,0 +1,12 @@
+// CadastroRequest.java
+public record CadastroRequest(String nome, String email, String senha, Plano plano) {}
+
+// LoginRequest.java
+public record LoginRequest(String email, String senha) {}
+
+// UsuarioResponse.java
+public record UsuarioResponse(Long id, String nome, String email, Plano plano, StatusConta status) {
+    public static UsuarioResponse de(Usuario u) {
+        return new UsuarioResponse(u.getId(), u.getNome(), u.getEmail(), u.getPlano(), u.getStatus());
+    }
+}
